@@ -42,3 +42,10 @@ export const SortingBtn = styled.button`
     top:2px;
   }
 `;
+
+export const NotesTitle = styled.p`
+  color: rgb(133,133,133);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-left: 20px;
+`;

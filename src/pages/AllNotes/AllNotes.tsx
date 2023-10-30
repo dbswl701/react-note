@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Input, SortingBtn } from './AllNotes.styles'
+import { Container, Input, NotesTitle, SortingBtn } from './AllNotes.styles'
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import Note from '../../components/Note/Note';
 
 const AllNotes = () => {
   const [search, setSearch] = useState('');
   const [debouncedValue, setDebouncedValue] = useState(search);
+
+  const notes = useSelector((state: RootState) => state.noteList);
+  console.log(notes);
 
   console.log(search);
   console.log('debouncd: ', debouncedValue);
@@ -27,7 +33,12 @@ const AllNotes = () => {
       <SortingBtn>정렬</SortingBtn>
       {/* 노트 */}
       {/* pinned note */}
+      <NotesTitle>Pinned Notes (2)</NotesTitle>
+      {
+        notes?.map((note) => <Note data={note} />)
+      }
       {/* all notes */}
+      <NotesTitle>All Notes(1)</NotesTitle>
     </Container>
   )
 }

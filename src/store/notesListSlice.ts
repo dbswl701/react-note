@@ -1,16 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { NoteType } from "../types/note";
 
-export interface Notes {
-  name: string,
-  content: string,
-  tag: string,
-  priority: boolean,
-  date: string,
-  background: string,
-  pinned: boolean,
-}
-
-const initialState: Notes[] = [
+const initialState: NoteType[] = [
   {
     name: '노트1 타이틀',
     content: '노트1 내용',
@@ -34,7 +25,7 @@ export const noteListSlice = createSlice({
   name: 'noteList',
   initialState,
   reducers: {
-    addNote: (state, action: PayloadAction<Notes>) => {
+    addNote: (state, action: PayloadAction<NoteType>) => {
       state.push(action.payload)
       console.log(state);
     }
