@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { Container, Title } from './Navbar.styles';
+import { AddBtn, Container, Title } from './Navbar.styles';
 
 const Navbar = () => {
   // params 들고와서, 제일 상단에 보여주기.
@@ -14,6 +14,7 @@ const Navbar = () => {
       <Title>
         {title}
       </Title>
+      <AddBtn>+</AddBtn>
     </Container>
   )
 }

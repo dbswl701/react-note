@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
 
 export const Container = styled.div`
-  // box-shadow: 0px 20px 15px -5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: row;
   border-bottom: 4px solid rgba(239, 239, 239);
-  // background-color: green;
   width: 80vw;
   height: 60px;
 `;
@@ -13,4 +13,14 @@ export const Title = styled.h1`
   line-height: 60px;
   font-size: 1.5rem;
   padding-left: 20px;
+`;
+
+export const AddBtn = styled.button`
+  margin: auto 40px auto auto;
+  height: 40px;
+  width: 60px;
+  background-color: rgb(254, 238,196);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
 `;
