@@ -3,6 +3,7 @@ import { NoteType } from "../types/note";
 
 const initialState: NoteType[] = [
   {
+    id: 1,
     name: '노트1 타이틀',
     content: '노트1 내용',
     tag: 'exercise',
@@ -13,14 +14,6 @@ const initialState: NoteType[] = [
   }
 ]
 
-// export interface CounterState {
-//   value: number
-// }
-
-// const initialState: CounterState = {
-//   value: 0
-// }
-
 export const noteListSlice = createSlice({
   name: 'noteList',
   initialState,
@@ -29,19 +22,7 @@ export const noteListSlice = createSlice({
       state.push(action.payload)
       console.log(state);
     }
-    // increment: (state) => {
-    //   state.value +=1
-    // },
-    // decrement: (state) => {
-    //   state.value -= 1
-    // },
-    // incrementByAmount: (state, action: PayloadAction<number>) => {
-    //   state.value += action.payload
-    // }
-
   },
 })
 export const { addNote } = noteListSlice.actions;
 export default noteListSlice.reducer;
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions
-// export default counterSlice.reducer

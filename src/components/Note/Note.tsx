@@ -13,7 +13,7 @@ type NoteProps = {
 const Note = ({data}: NoteProps) => {
   console.log(data);
   return (
-    <Container bColor={data.background}>
+    <Container bcolor={data.background}>
       <NoteHeader>
         <Title>{data.name}</Title>
         <NoteHeaderSide>

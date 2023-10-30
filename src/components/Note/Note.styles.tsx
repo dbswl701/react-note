@@ -1,12 +1,12 @@
 import { styled } from "styled-components";
 
 type ContainerProp = {
-  bColor: string
+  bcolor: string
 }
 
 // 나중에 배경색상 리펙토링!
 export const Container = styled.div<ContainerProp>`
-  background-color: ${prop => prop.bColor === 'red'? 'rgb(255,205,205)': 'rgb(203,223,255)'};
+  background-color: ${prop => prop.bcolor === 'red'? 'rgb(255,205,205)': 'rgb(203,223,255)'};
   width: 300px;
   height: 200px;
   border-radius: 13px;

@@ -35,7 +35,7 @@ const AllNotes = () => {
       {/* pinned note */}
       <NotesTitle>Pinned Notes (2)</NotesTitle>
       {
-        notes?.map((note) => <Note data={note} />)
+        notes?.map((note) => <Note key={note.id} data={note} />)
       }
       {/* all notes */}
       <NotesTitle>All Notes(1)</NotesTitle>
