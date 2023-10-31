@@ -2,21 +2,26 @@ import { createSlice } from "@reduxjs/toolkit"
 // import { NoteType } from "../types/note";
 
 type isOpenType = {
-  isOpen: boolean
+  isOpenAddNote: boolean, // 노트 생성 모달창
+  isOpenAddTag: boolean,
 }
 
 const initialState: isOpenType = {
-  isOpen: false
+  isOpenAddNote: false,
+  isOpenAddTag: false,
 }
 
 export const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    openToggle: (state) => {
-      state.isOpen = !state.isOpen
+    toggleAddNoteModal: (state) => {
+      state.isOpenAddNote = !state.isOpenAddNote
+    },
+    toggleAddTagModal: (state) => {
+      state.isOpenAddTag = !state.isOpenAddTag
     }
   },
 })
-export const { openToggle } = modalSlice.actions;
+export const { toggleAddNoteModal, toggleAddTagModal } = modalSlice.actions;
 export default modalSlice.reducer;

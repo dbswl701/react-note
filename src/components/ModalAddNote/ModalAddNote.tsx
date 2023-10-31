@@ -5,7 +5,7 @@ import ReactQuill from 'react-quill'
 import { useDispatch } from 'react-redux'
 import { addNote } from '../../store/notesListSlice'
 import { NoteType } from '../../types/note'
-import { openToggle } from '../../store/modalSlice'
+import { toggleAddNoteModal } from '../../store/modalSlice'
 import dayjs from 'dayjs'
 
 const ModalAddNote = () => {
@@ -43,7 +43,7 @@ const ModalAddNote = () => {
     // 생성 날짜, 태그, 배경색, 우선순위, 제목, 내용 -> 리듀서에 저장
     const date = dayjs().format('MM/DD/YY hh:mm A');
     dispatch(addNote({...contents, createdAt: date, modifiedAt: date}));
-    dispatch(openToggle());
+    dispatch(toggleAddNoteModal());
   }
 
   console.log('contents:', contents);

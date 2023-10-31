@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { AddBtn, Container, Title } from './Navbar.styles';
 import { useDispatch } from 'react-redux';
-import { openToggle } from '../../store/modalSlice';
+import { toggleAddNoteModal } from '../../store/modalSlice';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Navbar = () => {
       <Title>
         {title}
       </Title>
-      <AddBtn onClick={() => dispatch(openToggle())}>+</AddBtn>
+      <AddBtn onClick={() => dispatch(toggleAddNoteModal())}>+</AddBtn>
     </Container>
   )
 }
