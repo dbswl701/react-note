@@ -14,6 +14,7 @@ import { IoClose }from 'react-icons/io5';
 const ModalAddNote = () => {
   const dispatch = useDispatch();
   const isOpenAddTag = useSelector((state:RootState) => state.modal.isOpenAddTag);
+  const [addTags, setAddTags] = useState<number[]>([]);
   const [contents, setContents] = useState<NoteType>({
     id: 0,
     name: '',
@@ -57,10 +58,15 @@ const ModalAddNote = () => {
     dispatch(toggleAddNoteModal());
   }
 
+  const onClickAddNoteTag = (id: number) => {
+    console.log(id);
+    setAddTags([...addTags, id]);
+  }
+
   console.log('contents:', contents);
   return (
     <Wrapper>
-      {isOpenAddTag && <ModalAddTag />}
+      {isOpenAddTag && <ModalAddTag addTags={addTags} onClickAddNoteTag={onClickAddNoteTag} />}
       <Container>
         <Header>
           <h2>노트 생성하기</h2>

@@ -30,6 +30,9 @@ export const noteListSlice = createSlice({
     addNote: (state, action: PayloadAction<NoteType>) => {
       state.push(action.payload)
       console.log(state);
+    },
+    addNoteTag: (state, action) => {
+      state[action.payload.id].tagList.push(action.payload.tag);
     }
   },
 })
