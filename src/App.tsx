@@ -27,7 +27,7 @@ function App() {
           <Route path="/" element={<AllNotes />} />
           <Route path="/trash" element={<TrashNotes />} />
           <Route path="/archive" element={<ArchiveNotes />} />
-          <Route path="/tag:name" element={<TagNotes />} />
+          <Route path="/tag/:name" element={<TagNotes />} />
           <Route path="/404" element={<ErrorPage />} />
         </Routes>
       </div>
