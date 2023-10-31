@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 // import DropDown from '../DropDown/dropdown';
-import { AddTagBtn, Container, CreateBtn, Footer, Input, Label, Select, Wrapper } from './ModalAddNote.styles'
+import { AddTagBtn, Container, CreateBtn, Footer, Header, Input, Label, Select, Wrapper } from './ModalAddNote.styles'
 import ReactQuill from 'react-quill'
 import { useDispatch, useSelector } from 'react-redux'
 import { addNote } from '../../store/notesListSlice'
@@ -9,6 +9,7 @@ import { toggleAddNoteModal, toggleAddTagModal } from '../../store/modalSlice'
 import dayjs from 'dayjs'
 import { RootState } from '../../store'
 import ModalAddTag from '../ModalAddTag/ModalAddTag'
+import { IoClose }from 'react-icons/io5';
 
 const ModalAddNote = () => {
   const dispatch = useDispatch();
@@ -52,12 +53,19 @@ const ModalAddNote = () => {
     dispatch(toggleAddTagModal());
   }
 
+  const onClickClocse = () => {
+    dispatch(toggleAddNoteModal());
+  }
+
   console.log('contents:', contents);
   return (
     <Wrapper>
       {isOpenAddTag && <ModalAddTag />}
       <Container>
-        <h2>노트 생성하기</h2>
+        <Header>
+          <h2>노트 생성하기</h2>
+          <IoClose onClick={onClickClocse}style={{height: '30px', width: '30px', color: 'rgb(127,127,127)'}} />
+        </Header>
         <Input name="name" value={contents.name} onChange={(e) => onChange(e)} />
         <ReactQuill style={{height: '500px', marginBottom: '40px'}} onChange={(e) => onChange(e)}/>
         <Footer>

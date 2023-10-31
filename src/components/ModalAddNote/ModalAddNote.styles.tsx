@@ -80,3 +80,11 @@ export const Input = styled.input`
   border: 1px solid #ccc; 
   padding-left: 20px;
 `;
+
+export const Header = styled.div`
+  display: flex;
+  // background-color: red;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+`;
