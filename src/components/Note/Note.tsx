@@ -29,7 +29,7 @@ const Note = ({data}: NoteProps) => {
         {/* <Tag>{data.tag}</Tag> */}
       </Tags>
       <Footer>
-        <DateText>{data.date}</DateText>
+        <DateText>{data.createdAt}</DateText>
         <FooterSide>
           {/* // 수정, archive, 휴지통 버튼 */}
           <BiSolidEdit style={{ height: '20px', width: '20px'}} />

@@ -1,17 +1,14 @@
 import React, { useState } from 'react'
 // import DropDown from '../DropDown/dropdown';
-// import { useState } from 'react';
 import { AddTagBtn, Container, CreateBtn, Footer, Input, Label, Select, Wrapper } from './ModalAddNote.styles'
 import ReactQuill from 'react-quill'
 import { useDispatch } from 'react-redux'
 import { addNote } from '../../store/notesListSlice'
 import { NoteType } from '../../types/note'
 import { openToggle } from '../../store/modalSlice'
+import dayjs from 'dayjs'
 
 const ModalAddNote = () => {
-  // const [text, setText] = useState('');
-  // const [bColor, setBColor] = useState('white');
-  // const [priority, setPriority] = useState(false);
   const dispatch = useDispatch();
   
   const [contents, setContents] = useState<NoteType>({
@@ -19,19 +16,12 @@ const ModalAddNote = () => {
     name: '',
     content: '',
     tag: '',
-    date: '',
+    createdAt: '',
+    modifiedAt: '',
     background: 'white',
     priority: 'low',
     pinned: false,
   });
-
-  // const onChangeContents = (content: string) => {
-  //   // setText(content);
-  //   console.log(content);
-  // }
-  // const onChangeBColor = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   console.log(e.target.value);
-  // } 
 
   const onChange = (e: string | React.ChangeEvent<HTMLSelectElement> | React.ChangeEvent<HTMLInputElement>) => {
     if (typeof e === 'string') { // 본문 내용
@@ -51,11 +41,11 @@ const ModalAddNote = () => {
   }
   const onSubmit = () => {
     // 생성 날짜, 태그, 배경색, 우선순위, 제목, 내용 -> 리듀서에 저장
-    dispatch(addNote(contents));
+    const date = dayjs().format('MM/DD/YY hh:mm A');
+    dispatch(addNote({...contents, createdAt: date, modifiedAt: date}));
     dispatch(openToggle());
   }
-  // console.log(bColor);
-  // console.log(priority);
+
   console.log('contents:', contents);
   return (
     <Wrapper>
@@ -80,8 +70,8 @@ const ModalAddNote = () => {
             {/* 우선순위:  */}
             <Label htmlFor="priority">우선순위: </Label>
             <Select id="priority" name="priority" onChange={(e) =>onChange(e)} >
-              <option value='high'>High</option>
               <option value='low'>Low</option>
+              <option value='high'>High</option>
             </Select>
           </div>
         </Footer>

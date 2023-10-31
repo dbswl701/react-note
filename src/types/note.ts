@@ -4,7 +4,8 @@ export interface NoteType {
   content: string,
   tag: string,
   priority: string,
-  date: string,
+  createdAt: string,
+  modifiedAt: string,
   background: string,
   pinned: boolean,
 }

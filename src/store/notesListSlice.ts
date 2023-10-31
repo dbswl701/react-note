@@ -8,7 +8,8 @@ const initialState: NoteType[] = [
     content: '노트1 내용',
     tag: 'exercise',
     priority: 'low',
-    date: '2023-10-30',
+    createdAt: '10/30/23 11:32 AM',
+    modifiedAt: '10/30/23 11:32 AM',
     background: 'red',
     pinned: true,
   }
