@@ -7,7 +7,7 @@ const initialState: NoteType[] = [
     name: '노트1 타이틀',
     content: '노트1 내용',
     tag: 'exercise',
-    priority: false,
+    priority: 'low',
     date: '2023-10-30',
     background: 'red',
     pinned: true,

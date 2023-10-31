@@ -17,7 +17,7 @@ const Note = ({data}: NoteProps) => {
       <NoteHeader>
         <Title>{data.name}</Title>
         <NoteHeaderSide>
-          <Priority>{data.priority === false ? 'LOW' : 'HIGH'}</Priority>
+          <Priority>{data.priority.toUpperCase()}</Priority>
           <BsPinFill style={{ margin: 'auto', color: data.pinned === false ? 'gray' : 'red' }} />
         </NoteHeaderSide>
       </NoteHeader>

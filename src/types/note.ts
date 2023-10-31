@@ -3,7 +3,7 @@ export interface NoteType {
   name: string,
   content: string,
   tag: string,
-  priority: boolean,
+  priority: string,
   date: string,
   background: string,
   pinned: boolean,

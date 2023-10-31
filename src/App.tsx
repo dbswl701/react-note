@@ -10,10 +10,16 @@ import ErrorPage from './pages/ErrorPage/ErrorPage'
 import Sidebar from './layout/Sidebar/Sidebar'
 import Navbar from './layout/Navbar/Navbar'
 import { AppContainer } from './App.styles'
+import ModalAddNote from './components/Modals/ModalAddNote'
+import { useSelector } from 'react-redux'
+import { RootState } from './store'
 
 function App() {
+  const isOpen = useSelector((state: RootState) => state.modal.isOpen)
+  console.log('isOpen: ', isOpen);
   return (
     <AppContainer>
+      { isOpen && <ModalAddNote /> }
       <Sidebar />
       <div className='app__container'>
         <Navbar />
