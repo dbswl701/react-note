@@ -19,7 +19,7 @@ export const Container = styled.div`
   background-color: white;
   margin: auto auto;
   width: 60vw;
-  height: 500px;
+  height: 550px;
   bottom: 0px;
   border-radius: 15px;
   padding: 20px;
@@ -87,4 +87,28 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-right: 10px;
+`;
+
+export const Tags = styled.div`
+  // background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 20px;
+  margin-top: 20px;
+`;
+
+export const Tag = styled.div`
+  background-color: rgba(0,0,0,0.1);
+  padding: 3px 5px;
+  border-radius: 10px;
+  margin: 0px;
+  font-size: 11px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+`;
+
+export const TagText = styled.p`
+  margin: 0px;
 `;
