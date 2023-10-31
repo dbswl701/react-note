@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 // import DropDown from '../DropDown/dropdown';
 import { AddTagBtn, Container, CreateBtn, Footer, Input, Label, Select, Wrapper } from './ModalAddNote.styles'
 import ReactQuill from 'react-quill'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addNote } from '../../store/notesListSlice'
 import { NoteType } from '../../types/note'
-import { toggleAddNoteModal } from '../../store/modalSlice'
+import { toggleAddNoteModal, toggleAddTagModal } from '../../store/modalSlice'
 import dayjs from 'dayjs'
+import { RootState } from '../../store'
+import ModalAddTag from '../ModalAddTag/ModalAddTag'
 
 const ModalAddNote = () => {
   const dispatch = useDispatch();
-  
+  const isOpenAddTag = useSelector((state:RootState) => state.modal.isOpenAddTag);
   const [contents, setContents] = useState<NoteType>({
     id: 0,
     name: '',
@@ -45,16 +47,21 @@ const ModalAddNote = () => {
     dispatch(addNote({...contents, createdAt: date, modifiedAt: date}));
     dispatch(toggleAddNoteModal());
   }
+  const onClickAddTag = () => {
+    // tag 모달창 열기
+    dispatch(toggleAddTagModal());
+  }
 
   console.log('contents:', contents);
   return (
     <Wrapper>
+      {isOpenAddTag && <ModalAddTag />}
       <Container>
         <h2>노트 생성하기</h2>
         <Input name="name" value={contents.name} onChange={(e) => onChange(e)} />
         <ReactQuill style={{height: '500px', marginBottom: '40px'}} onChange={(e) => onChange(e)}/>
         <Footer>
-          <AddTagBtn>Add Tag</AddTagBtn>
+          <AddTagBtn onClick={onClickAddTag}>Add Tag</AddTagBtn>
           <div>
             {/* 배경색:  */}
             <Label htmlFor="backgorund">배경색: </Label>
