@@ -25,6 +25,8 @@ const AllNotes = () => {
     }; //value 변경 시점에 clearTimeout을 해줘야함.
   }, [search]);
 
+  const pinnedNoteList = notes.filter(note => note.pinned);
+  const allNoteList = notes.filter(note => !note.pinned);
   return (
     <Container>
       {/* 검색 */}
@@ -36,11 +38,18 @@ const AllNotes = () => {
       <NotesTitle>Pinned Notes (2)</NotesTitle>
       <NoteContainer>
         {
-          notes?.map((note) => <Note key={note.id} data={note} />)
+          // 핀 된것만 보이기
+          pinnedNoteList?.map((note) => <Note key={note.id} data={note} />)
         }
       </NoteContainer>
       {/* all notes */}
       <NotesTitle>All Notes(1)</NotesTitle>
+      <NoteContainer>
+        {
+          // 핀 제외 노트만 보이기
+          allNoteList?.map((note) => <Note key={note.id} data={note} />)
+        }
+      </NoteContainer>
     </Container>
   )
 }
