@@ -12,7 +12,20 @@ const Navbar = () => {
   const {pathname} = useLocation();
   console.log(pathname);
   console.log(pathname.slice(1,));
-  const title = pathname.slice(1,) === '' ? 'Notes' : pathname.slice(1,);
+  let title = pathname.slice(1,) === '' ? 'Notes' : pathname.slice(1,);
+  switch(pathname.slice(0,4)) {
+    case('/'): {
+      title = 'Notes';
+      break;
+    }
+    case('/tag'): {
+      title = pathname.split('/')[2];
+      break;
+    }
+    default: {
+      title = pathname.split('/')[1];
+    }
+  }
   return (
     <Container>
       <Title>
