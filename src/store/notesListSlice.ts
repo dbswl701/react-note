@@ -3,7 +3,7 @@ import { NoteType } from "../types/note";
 
 const initialState: NoteType[] = [
   {
-    id: 1,
+    id: 0,
     name: '노트1 타이틀',
     content: '노트1 내용',
     // tagList: [{
@@ -33,8 +33,24 @@ export const noteListSlice = createSlice({
     },
     addNoteTag: (state, action) => {
       state[action.payload.id].tagList.push(action.payload.tag);
+      console.log(state);
+    },
+    togglePin: (state, action) => {
+      // 일단, action.payload.id에 해당하는 note 찾기
+      
+      // state.map((item) => {
+      //   if (item.id === action.payload.id) {
+      //     item.pinned = !item.pinned;
+      //   }
+      //   console.log(item);
+      //   return item;
+      // })
+      // console.log(action.payload.id);
+      // console.log(state[action.payload.id]);
+      state[action.payload.id].pinned = !state[action.payload.id].pinned;
+
     }
   },
 })
-export const { addNote } = noteListSlice.actions;
+export const { addNote, togglePin } = noteListSlice.actions;
 export default noteListSlice.reducer;

@@ -5,8 +5,9 @@ import {BsPinFill} from 'react-icons/bs';
 import {BiSolidEdit} from 'react-icons/bi';
 import {BiSolidArchiveOut} from 'react-icons/bi';
 import {FaTrash} from 'react-icons/fa6';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import { togglePin } from '../../store/notesListSlice';
 
 type NoteProps = {
   data: NoteType
@@ -18,13 +19,23 @@ const Note = ({data}: NoteProps) => {
   console.log(tagList);
   const filteredTagList = tagList.filter((v) => data.tagList.includes(v.id));
   console.log(filteredTagList);
+
+  // const noteList = useSelector((state:RootState) => state.noteList);
+  const dispatch = useDispatch();
+  // const note = noteList.
+
+  const onClickTogglePin = () => {
+    console.log('pinned');
+    console.log(data);
+    dispatch(togglePin({id: data.id}));
+  }
   return (
     <Container bcolor={data.background}>
       <NoteHeader>
         <Title>{data.name}</Title>
         <NoteHeaderSide>
           <Priority>{data.priority.toUpperCase()}</Priority>
-          <BsPinFill style={{ margin: 'auto', color: data.pinned === false ? 'gray' : 'red' }} />
+          <BsPinFill onClick={onClickTogglePin} style={{ margin: 'auto', color: data.pinned === false ? 'gray' : 'red' }} />
         </NoteHeaderSide>
       </NoteHeader>
       <Content>

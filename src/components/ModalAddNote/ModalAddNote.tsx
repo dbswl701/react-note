@@ -16,7 +16,7 @@ const ModalAddNote = () => {
   const isOpenAddTag = useSelector((state:RootState) => state.modal.isOpenAddTag);
   // const [addTags, setAddTags] = useState<number[]>([]);
   const [contents, setContents] = useState<NoteType>({
-    id: 0,
+    id: 1,
     name: '',
     content: '',
     tagList: [],
