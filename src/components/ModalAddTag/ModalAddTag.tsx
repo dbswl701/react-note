@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Container, Input, TagContainer, TagListContainer, TagTitle, Title } from './ModalAddTag.styles'
+import { Container, Header, Input, TagContainer, TagListContainer, TagTitle, Title, Wrapper } from './ModalAddTag.styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../store'
 import { TagType } from '../../types/tag'
 import { FaPlus } from 'react-icons/fa6';
 import { addTag } from '../../store/tagSlice.'
 // import { FaMinus } from 'react-icons/fa6';
+import { IoClose }from 'react-icons/io5';
+import { toggleAddTagModal } from '../../store/modalSlice'
 
 const TagItem = ({tag}: {tag: TagType}) => {
   return (
@@ -33,18 +35,27 @@ const ModalAddTag = () => {
     setText('');
   }
 
+  const onClickClocse = () => {
+    dispatch(toggleAddTagModal());
+  }
+
   return (
-    <Container>
-      <Title>ADD Tags</Title>
-      <form onSubmit={(e) => onSubmit(e)}>
-        <Input placeholder='new tag...' value={text} onChange={(e) => setText(e.target.value)}/>
-      </form>
-      <TagListContainer>
-        {
-          tagList?.map((tag) => <TagItem key={tag.id} tag={tag} />)
-        }
-      </TagListContainer>
-    </Container>
+    <Wrapper>
+      <Container>
+        <Header>
+          <Title>ADD Tags</Title>
+          <IoClose onClick={onClickClocse}style={{height: '30px', width: '30px', color: 'rgb(127,127,127)'}} />
+        </Header>
+        <form onSubmit={(e) => onSubmit(e)}>
+          <Input placeholder='new tag...' value={text} onChange={(e) => setText(e.target.value)}/>
+        </form>
+        <TagListContainer>
+          {
+            tagList?.map((tag) => <TagItem key={tag.id} tag={tag} />)
+          }
+        </TagListContainer>
+      </Container>
+    </Wrapper>
   )
 }
 
