@@ -18,7 +18,7 @@ const ModalAddNote = () => {
     id: 0,
     name: '',
     content: '',
-    tag: '',
+    tagList: [],
     createdAt: '',
     modifiedAt: '',
     background: 'white',

@@ -6,7 +6,15 @@ const initialState: NoteType[] = [
     id: 1,
     name: '노트1 타이틀',
     content: '노트1 내용',
-    tag: 'exercise',
+    // tagList: [{
+    //   id: 1,
+    //   tag: 'Coding',
+    // },
+    // {
+    //   id: 2,
+    //   tag: 'Exercise',
+    // },],
+    tagList: [1, 3],
     priority: 'low',
     createdAt: '10/30/23 11:32 AM',
     modifiedAt: '10/30/23 11:32 AM',

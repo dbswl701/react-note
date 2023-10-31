@@ -1,8 +1,10 @@
+// import { TagType } from "./tag";
+
 export interface NoteType {
   id: number,
   name: string,
   content: string,
-  tag: string,
+  tagList: number[],
   priority: string,
   createdAt: string,
   modifiedAt: string,

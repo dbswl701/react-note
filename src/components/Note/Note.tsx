@@ -5,6 +5,8 @@ import {BsPinFill} from 'react-icons/bs';
 import {BiSolidEdit} from 'react-icons/bi';
 import {BiSolidArchiveOut} from 'react-icons/bi';
 import {FaTrash} from 'react-icons/fa6';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 type NoteProps = {
   data: NoteType
@@ -12,6 +14,10 @@ type NoteProps = {
 
 const Note = ({data}: NoteProps) => {
   console.log(data);
+  const tagList = useSelector((state:RootState) => state.tag);
+  console.log(tagList);
+  const filteredTagList = tagList.filter((v) => data.tagList.includes(v.id));
+  console.log(filteredTagList);
   return (
     <Container bcolor={data.background}>
       <NoteHeader>
@@ -25,7 +31,9 @@ const Note = ({data}: NoteProps) => {
         <ContentText>{data.content}</ContentText>
       </Content>
       <Tags>
-        <Tag>{data.tag}</Tag>
+        {
+          filteredTagList.map((tag) => <Tag key={tag.id}>{tag.tag}</Tag>)
+        }
         {/* <Tag>{data.tag}</Tag> */}
       </Tags>
       <Footer>
