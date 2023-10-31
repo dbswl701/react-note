@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Input, NotesTitle, SortingBtn } from './AllNotes.styles'
+import { Container, Input, NoteContainer, NotesTitle, SortingBtn } from './AllNotes.styles'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import Note from '../../components/Note/Note';
@@ -34,9 +34,11 @@ const AllNotes = () => {
       {/* 노트 */}
       {/* pinned note */}
       <NotesTitle>Pinned Notes (2)</NotesTitle>
-      {
-        notes?.map((note) => <Note key={note.id} data={note} />)
-      }
+      <NoteContainer>
+        {
+          notes?.map((note) => <Note key={note.id} data={note} />)
+        }
+      </NoteContainer>
       {/* all notes */}
       <NotesTitle>All Notes(1)</NotesTitle>
     </Container>

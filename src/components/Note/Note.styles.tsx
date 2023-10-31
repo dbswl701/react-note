@@ -7,8 +7,8 @@ type ContainerProp = {
 // 나중에 배경색상 리펙토링!
 export const Container = styled.div<ContainerProp>`
   background-color: ${prop => prop.bcolor === 'red'? 'rgb(255,205,205)': 'rgb(203,223,255)'};
-  width: 300px;
-  height: 200px;
+  width: 230px;
+  height: 180px;
   border-radius: 13px;
   padding: 20px;
   margin-left: 20px;
@@ -32,29 +32,33 @@ export const Title = styled.h3`
 `;
 
 export const Priority = styled.p`
-margin: 0;
-margin-right: 10px;
-font-weight: 600;
+  margin: 0;
+  margin-right: 10px;
+  font-weight: 600;
 `;
 
 export const Content = styled.div`
-// background-color: red;
-height: 100px;
+  // background-color: red;
+  height: 80px;
+  font-size: 14px;
 `;
 
 export const ContentText = styled.p``;
 
 export const Tags = styled.div`
-// background-color: yellow;
-display: flex;
-flex-direction: row;
+  // background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 20px;
 `;
 
 export const Tag = styled.p`
-background-color: rgba(0,0,0,0.1);
-padding: 3px;
-border-radius: 15px;
-margin: 0px;
+  background-color: rgba(0,0,0,0.1);
+  padding: 3px 5px;
+  border-radius: 10px;
+  margin: 0px;
+  font-size: 11px;
 `;
 
 export const Footer = styled.div`

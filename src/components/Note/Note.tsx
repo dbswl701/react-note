@@ -27,7 +27,6 @@ const Note = ({data}: NoteProps) => {
       <Tags>
         <Tag>{data.tag}</Tag>
         {/* <Tag>{data.tag}</Tag> */}
-
       </Tags>
       <Footer>
         <DateText>{data.date}</DateText>

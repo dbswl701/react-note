@@ -49,3 +49,8 @@ export const NotesTitle = styled.p`
   font-weight: bold;
   margin-left: 20px;
 `;
+
+export const NoteContainer = styled.div`
+  display: flex;
+  flex-direciton: row;
+`;
