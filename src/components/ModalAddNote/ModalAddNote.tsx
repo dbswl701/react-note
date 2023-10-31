@@ -58,9 +58,13 @@ const ModalAddNote = () => {
     dispatch(toggleAddNoteModal());
   }
 
-  const onClickAddNoteTag = (id: number) => {
+  const onClickAddNoteTag = (id: number, flag: 'add' | 'delete') => {
     console.log(id);
-    setContents({...contents, tagList:[...contents.tagList, id]})
+    if (flag === 'add') {
+      setContents({...contents, tagList:[...contents.tagList, id]})
+    } else {
+      setContents({...contents, tagList: contents.tagList.filter(v => v !== id)})
+    }
     // setAddTags([...addTags, id]);
   }
 

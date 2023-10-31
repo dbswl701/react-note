@@ -12,23 +12,18 @@ import { toggleAddTagModal } from '../../store/modalSlice'
 interface TagItemProp {
   tag: TagType, 
   isAdded: boolean, 
-  onClickAddNoteTag: (id: number) => void;
+  onClickAddNoteTag: (id: number, flag: 'add' | 'delete') => void;
 }
 
 const TagItem = ({tag, isAdded, onClickAddNoteTag}: TagItemProp) => {
-  // const dispatch = useDispatch();
   console.log(isAdded);
-  // const onClick = () => {
-  //   console.log('click', tag.tag);
-  //   // 노트의 tagList에 해당 태그 id 추가
-  //   // dispatch(addNoteTag(note.id, tag.id));
-  // }
+
   return (
     <TagContainer>
       <TagTitle>{tag.tag}</TagTitle>
       {
         isAdded 
-        ? <FaMinus style={{height: '30px', width: '30px', color: 'rgb(127,127,127)'}} /> : <FaPlus onClick={() => onClickAddNoteTag(tag.id)} style={{height: '30px', width: '30px', color: 'rgb(127,127,127)'}} />
+        ? <FaMinus onClick={() => onClickAddNoteTag(tag.id, 'delete')} style={{height: '30px', width: '30px', color: 'rgb(127,127,127)'}} /> : <FaPlus onClick={() => onClickAddNoteTag(tag.id, 'add')} style={{height: '30px', width: '30px', color: 'rgb(127,127,127)'}} />
       }
     </TagContainer>
   )
@@ -36,8 +31,7 @@ const TagItem = ({tag, isAdded, onClickAddNoteTag}: TagItemProp) => {
 
 interface ModalAddTagProp {
   addTags: number[], 
-  onClickAddNoteTag: (id: number) => void;
-  // handleTags?: (tag: string, type: string) => void
+  onClickAddNoteTag: (id: number, flag: 'add' | 'delete') => void;
 }
 
 const ModalAddTag = ({addTags, onClickAddNoteTag}: ModalAddTagProp) => {
