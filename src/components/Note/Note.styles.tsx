@@ -43,7 +43,9 @@ export const Content = styled.div`
   font-size: 14px;
 `;
 
-export const ContentText = styled.p``;
+export const ContentText = styled.p`
+  margin: 0;
+`;
 
 export const Tags = styled.div`
   // background-color: yellow;

@@ -78,7 +78,7 @@ const Note = ({data}: NoteProps) => {
         </NoteHeaderSide>
       </NoteHeader>
       <Content>
-        <ContentText>{data.content}</ContentText>
+        <ContentText dangerouslySetInnerHTML={{ __html :  data.content  }} />
       </Content>
       <Tags>
         {
