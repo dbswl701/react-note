@@ -49,9 +49,19 @@ export const noteListSlice = createSlice({
       // console.log(action.payload.id);
       // console.log(state[action.payload.id]);
       state[action.payload.id].pinned = !state[action.payload.id].pinned;
-
+    },
+    toggleTypeArchive: (state, action) => {
+      switch(state[action.payload.id].type) {
+        case('normal'): {
+          state[action.payload.id].type = 'archive';
+          break;
+        }
+        case('archive'): {
+          state[action.payload.id].type = 'normal';
+        }
+      }
     }
   },
 })
-export const { addNote, togglePin } = noteListSlice.actions;
+export const { addNote, togglePin, toggleTypeArchive } = noteListSlice.actions;
 export default noteListSlice.reducer;
