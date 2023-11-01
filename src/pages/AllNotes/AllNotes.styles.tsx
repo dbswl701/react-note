@@ -47,10 +47,5 @@ export const NotesTitle = styled.p`
   color: rgb(133,133,133);
   font-size: 1.2rem;
   font-weight: bold;
-  margin-left: 20px;
-`;
-
-export const NoteContainer = styled.div`
-  display: flex;
-  flex-direciton: row;
+  margin: 30px 0px 0px 20px;
 `;

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Input, NoteContainer, NotesTitle, SortingBtn } from './AllNotes.styles'
+import { Container, Input, NotesTitle, SortingBtn } from './AllNotes.styles'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import Note from '../../components/Note/Note';
+// import Note from '../../components/Note/Note';
+import NoteWrapper from '../../components/NoteWrapper/NoteWrapper';
 
 const AllNotes = () => {
   const [search, setSearch] = useState('');
@@ -33,25 +34,17 @@ const AllNotes = () => {
     <Container>
       {/* 검색 */}
       <Input placeholder='노트의 제목을 입력해주세요.' value={search} onChange={(e) => setSearch(e.target.value)}/> 
+      
       {/* 정렬 */}
       <SortingBtn>정렬</SortingBtn>
+
       {/* 노트 */}
       {/* pinned note */}
       <NotesTitle>Pinned Notes (2)</NotesTitle>
-      <NoteContainer>
-        {
-          // 핀 된것만 보이기
-          pinnedNoteList?.map((note) => <Note key={note.id} data={note} />)
-        }
-      </NoteContainer>
+      <NoteWrapper noteList={pinnedNoteList} /> 
       {/* all notes */}
       <NotesTitle>All Notes(1)</NotesTitle>
-      <NoteContainer>
-        {
-          // 핀 제외 노트만 보이기
-          allNoteList?.map((note) => <Note key={note.id} data={note} />)
-        }
-      </NoteContainer>
+      <NoteWrapper noteList={allNoteList} />
     </Container>
   )
 }

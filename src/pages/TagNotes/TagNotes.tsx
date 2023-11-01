@@ -2,8 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { RootState } from '../../store';
-import Note from '../../components/Note/Note';
-import { Container } from './TagNotes.styles';
+import NoteWrapper from '../../components/NoteWrapper/NoteWrapper';
 
 const TagNotes = () => {
   const {name} = useParams();
@@ -22,11 +21,7 @@ const TagNotes = () => {
   console.log(filteredNoteList);
 
   return (
-    <Container>
-      {
-        filteredNoteList.map((note) => <Note key={note.id} data={note} />)
-      }
-    </Container>
+    <NoteWrapper noteList={filteredNoteList} />
   )
   
 }
