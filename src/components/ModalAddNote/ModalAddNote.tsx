@@ -25,6 +25,7 @@ const ModalAddNote = () => {
     background: 'white',
     priority: 'low',
     pinned: false,
+    type: 'normal',
   });
 
   const onChange = (e: string | React.ChangeEvent<HTMLSelectElement> | React.ChangeEvent<HTMLInputElement>) => {

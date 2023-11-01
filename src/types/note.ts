@@ -10,4 +10,5 @@ export interface NoteType {
   modifiedAt: string,
   background: string,
   pinned: boolean,
+  type: 'normal' | 'archive' | 'trash',
 }

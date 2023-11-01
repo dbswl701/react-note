@@ -20,6 +20,7 @@ const initialState: NoteType[] = [
     modifiedAt: '10/30/23 11:32 AM',
     background: 'red',
     pinned: true,
+    type: 'normal',
   }
 ]
 
@@ -37,7 +38,7 @@ export const noteListSlice = createSlice({
     },
     togglePin: (state, action) => {
       // 일단, action.payload.id에 해당하는 note 찾기
-      
+
       // state.map((item) => {
       //   if (item.id === action.payload.id) {
       //     item.pinned = !item.pinned;
