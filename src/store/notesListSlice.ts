@@ -63,8 +63,14 @@ export const noteListSlice = createSlice({
     },
     deleteNote: (state, action) => {
       state[action.payload.id].type = 'trash';
+    },
+    restoreNote: (state, action) => {
+      state[action.payload.id].type = 'normal';
+    },
+    removeNote: (state, action) => {
+      return state.filter((note) => {console.log(note.id); note.id !== action.payload.id});
     }
   },
 })
-export const { addNote, togglePin, toggleTypeArchive, deleteNote } = noteListSlice.actions;
+export const { addNote, togglePin, toggleTypeArchive, deleteNote, restoreNote, removeNote } = noteListSlice.actions;
 export default noteListSlice.reducer;

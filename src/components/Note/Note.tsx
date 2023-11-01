@@ -7,7 +7,7 @@ import {BiSolidArchiveOut} from 'react-icons/bi';
 import {FaTrash} from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import { deleteNote, togglePin, toggleTypeArchive } from '../../store/notesListSlice';
+import { deleteNote, removeNote, restoreNote, togglePin, toggleTypeArchive } from '../../store/notesListSlice';
 import { FaTrashRestore } from 'react-icons/fa';
 
 type NoteProps = {
@@ -40,6 +40,14 @@ const Note = ({data}: NoteProps) => {
     dispatch(deleteNote({id: data.id}));
   }
 
+  const onClickRestore = () => {
+    dispatch(restoreNote({id: data.id}));
+  }
+  
+  const onClickRemove = () => {
+    dispatch(removeNote({id: data.id}));
+  }
+
   const NormalFooter = () => {
     return (
       <FooterSide>
@@ -55,8 +63,8 @@ const Note = ({data}: NoteProps) => {
     return (
       <FooterSide>
         {/* // 수정, archive, 휴지통 버튼 */}
-        <FaTrashRestore onClick={onClickDelete} style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
-        <FaTrash onClick={onClickDelete} style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
+        <FaTrashRestore onClick={onClickRestore} style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
+        <FaTrash onClick={onClickRemove} style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
       </FooterSide>
     )
   }
