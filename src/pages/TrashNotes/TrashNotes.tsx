@@ -1,14 +1,13 @@
 import React from 'react'
-import { useLocation, useParams } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import NoteWrapper from '../../components/NoteWrapper/NoteWrapper';
 
 const TrashNotes = () => {
-  const params = useParams();
-  const location =useLocation();
-
-  console.log('params!!!!: ', params);
-  console.log(location);
+  const noteList = useSelector((state: RootState) => state.noteList);
+  const filteredNoteList = noteList.filter((note) => note.type==="trash");
   return (
-    <div>TrashNotes</div>
+    <NoteWrapper noteList={filteredNoteList} />
   )
 }
 

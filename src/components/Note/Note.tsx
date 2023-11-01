@@ -7,7 +7,8 @@ import {BiSolidArchiveOut} from 'react-icons/bi';
 import {FaTrash} from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import { togglePin, toggleTypeArchive } from '../../store/notesListSlice';
+import { deleteNote, togglePin, toggleTypeArchive } from '../../store/notesListSlice';
+import { FaTrashRestore } from 'react-icons/fa';
 
 type NoteProps = {
   data: NoteType
@@ -34,6 +35,31 @@ const Note = ({data}: NoteProps) => {
     // 해당 노트의 type에 archive를 toggle
     dispatch(toggleTypeArchive({id: data.id}));
   }
+
+  const onClickDelete = () => {
+    dispatch(deleteNote({id: data.id}));
+  }
+
+  const NormalFooter = () => {
+    return (
+      <FooterSide>
+        {/* // 수정, archive, 휴지통 버튼 */}
+        <BiSolidEdit style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
+        <BiSolidArchiveOut onClick={onClickToggleArchive} style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
+        <FaTrash onClick={onClickDelete} style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
+      </FooterSide>
+    )
+  }
+
+  const TrashFooter = () => {
+    return (
+      <FooterSide>
+        {/* // 수정, archive, 휴지통 버튼 */}
+        <FaTrashRestore onClick={onClickDelete} style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
+        <FaTrash onClick={onClickDelete} style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
+      </FooterSide>
+    )
+  }
   return (
     <Container bcolor={data.background}>
       <NoteHeader>
@@ -54,12 +80,10 @@ const Note = ({data}: NoteProps) => {
       </Tags>
       <Footer>
         <DateText>{data.createdAt}</DateText>
-        <FooterSide>
-          {/* // 수정, archive, 휴지통 버튼 */}
-          <BiSolidEdit style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
-          <BiSolidArchiveOut onClick={onClickToggleArchive} style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
-          <FaTrash style={{ height: '20px', width: '20px', cursor: 'pointer'}} />
-        </FooterSide>
+        {
+          data.type === 'trash' ? <TrashFooter /> : <NormalFooter />
+        }
+        {/* <NormalFooter /> */}
       </Footer>
     </Container>
   )
