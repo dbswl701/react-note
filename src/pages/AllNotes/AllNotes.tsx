@@ -11,6 +11,8 @@ const AllNotes = () => {
   const notes = useSelector((state: RootState) => state.noteList);
   console.log(notes);
 
+  const filteredNotesList = notes.filter(note => note.type === 'normal');
+
   console.log(search);
   console.log('debouncd: ', debouncedValue);
 
@@ -25,8 +27,8 @@ const AllNotes = () => {
     }; //value 변경 시점에 clearTimeout을 해줘야함.
   }, [search]);
 
-  const pinnedNoteList = notes.filter(note => note.pinned);
-  const allNoteList = notes.filter(note => !note.pinned);
+  const pinnedNoteList = filteredNotesList.filter(note => note.pinned);
+  const allNoteList = filteredNotesList.filter(note => !note.pinned);
   return (
     <Container>
       {/* 검색 */}
