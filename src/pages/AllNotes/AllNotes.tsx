@@ -34,16 +34,16 @@ const AllNotes = () => {
     <Container>
       {/* 검색 */}
       <Input placeholder='노트의 제목을 입력해주세요.' value={search} onChange={(e) => setSearch(e.target.value)}/> 
-      
+
       {/* 정렬 */}
       <SortingBtn>정렬</SortingBtn>
 
       {/* 노트 */}
       {/* pinned note */}
-      <NotesTitle>Pinned Notes (2)</NotesTitle>
+      <NotesTitle>Pinned Notes ({pinnedNoteList.length})</NotesTitle>
       <NoteWrapper noteList={pinnedNoteList} /> 
       {/* all notes */}
-      <NotesTitle>All Notes(1)</NotesTitle>
+      <NotesTitle>All Notes({allNoteList.length})</NotesTitle>
       <NoteWrapper noteList={allNoteList} />
     </Container>
   )
