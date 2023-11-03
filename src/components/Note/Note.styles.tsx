@@ -6,12 +6,13 @@ type ContainerProp = {
 
 // 나중에 배경색상 리펙토링!
 export const Container = styled.div<ContainerProp>`
-  background-color: ${prop => prop.bcolor === 'red'? 'rgb(255,205,205)': 'rgb(203,223,255)'};
+  background-color: ${prop => prop.bcolor};
   width: 230px;
   height: 180px;
   border-radius: 13px;
   padding: 20px;
   margin-left: 20px;
+  border: 1px solid black; // rㅡ림자로 효과주기
 `;
 
 export const NoteHeader = styled.div`

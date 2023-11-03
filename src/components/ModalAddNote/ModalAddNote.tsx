@@ -102,13 +102,13 @@ const ModalAddNote = () => {
           <AddTagBtn onClick={onClickAddTag}>Add Tag</AddTagBtn>
           <div>
             {/* 배경색:  */}
-            <Label htmlFor="backgorund">배경색: </Label>
-            <Select id="backgorund" name="backgorund" onChange={(e) =>onChange(e)} >
+            <Label htmlFor="background">배경색: </Label>
+            <Select id="background" name="background" onChange={(e) =>onChange(e)} >
               <option value="white">White</option>
-              <option value="red">Red</option>
-              <option value="green">Green</option>
-              <option value="blue">Blue</option>
-              <option value="yellow">Yellow</option>
+              <option value="rgb(255,205,205)">Red</option>
+              <option value="rgb(205,255,204)">Green</option>
+              <option value="rgb(203,223,255)">Blue</option>
+              <option value="rgb(255,255,204)">Yellow</option>
             </Select>
           </div>
           <div>
