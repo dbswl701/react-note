@@ -4,7 +4,7 @@ export interface NoteType {
   id: string,
   name: string,
   content: string,
-  tagList: number[],
+  tagList: string[],
   priority: string,
   createdAt: string,
   modifiedAt: string,

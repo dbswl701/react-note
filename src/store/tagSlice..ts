@@ -1,18 +1,19 @@
 // import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { v4 } from "uuid";
 import { TagType } from "../types/tag";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: TagType[] = [
   {
-    id: 1,
+    id: v4(),
     tag: 'Coding',
   },
   {
-    id: 2,
+    id: v4(),
     tag: 'Exercise',
   },
   {
-    id: 3,
+    id: v4(),
     tag: 'Quotes',
   }
 ]

@@ -1,29 +1,29 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { NoteType } from "../types/note";
-import { v4 } from 'uuid';
+// import { v4 } from 'uuid';
 
 
 const initialState: NoteType[] = [
-  {
-    id: v4(),
-    name: '노트1 타이틀',
-    content: '노트1 내용',
-    // tagList: [{
-    //   id: 1,
-    //   tag: 'Coding',
-    // },
-    // {
-    //   id: 2,
-    //   tag: 'Exercise',
-    // },],
-    tagList: [1, 3],
-    priority: 'low',
-    createdAt: '10/30/23 11:32 AM',
-    modifiedAt: '10/30/23 11:32 AM',
-    background: 'red',
-    pinned: true,
-    type: 'normal',
-  }
+  // {
+  //   id: v4(),
+  //   name: '노트1 타이틀',
+  //   content: '노트1 내용',
+  //   // tagList: [{
+  //   //   id: 1,
+  //   //   tag: 'Coding',
+  //   // },
+  //   // {
+  //   //   id: 2,
+  //   //   tag: 'Exercise',
+  //   // },],
+  //   tagList: [1, 3],
+  //   priority: 'low',
+  //   createdAt: '10/30/23 11:32 AM',
+  //   modifiedAt: '10/30/23 11:32 AM',
+  //   background: 'red',
+  //   pinned: true,
+  //   type: 'normal',
+  // }
 ]
 
 export const noteListSlice = createSlice({

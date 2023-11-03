@@ -60,7 +60,7 @@ const ModalAddNote = () => {
     dispatch(toggleAddNoteModal());
   }
 
-  const onClickAddNoteTag = (id: number, flag: 'add' | 'delete') => {
+  const onClickAddNoteTag = (id: string, flag: 'add' | 'delete') => {
     console.log(id);
     if (flag === 'add') {
       setContents({...contents, tagList:[...contents.tagList, id]})
@@ -76,7 +76,7 @@ const ModalAddNote = () => {
   console.log(filteredTagList);
   console.log('contents:', contents);
 
-  const onClickDeleteTag = (tagId: number) => {
+  const onClickDeleteTag = (tagId: string) => {
     setContents({...contents, tagList: contents.tagList.filter(v => v !== tagId)})
     // setAddTags([...addTags.filter(v => v !== tagId)])
   }

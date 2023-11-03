@@ -8,11 +8,12 @@ import { addTag } from '../../store/tagSlice.'
 import { FaMinus } from 'react-icons/fa6';
 import { IoClose }from 'react-icons/io5';
 import { toggleAddTagModal } from '../../store/modalSlice'
+import { v4 } from 'uuid'
 
 interface TagItemProp {
   tag: TagType, 
   isAdded: boolean, 
-  onClickAddNoteTag: (id: number, flag: 'add' | 'delete') => void;
+  onClickAddNoteTag: (id: string, flag: 'add' | 'delete') => void;
 }
 
 const TagItem = ({tag, isAdded, onClickAddNoteTag}: TagItemProp) => {
@@ -30,8 +31,8 @@ const TagItem = ({tag, isAdded, onClickAddNoteTag}: TagItemProp) => {
 }
 
 interface ModalAddTagProp {
-  addTags: number[], 
-  onClickAddNoteTag: (id: number, flag: 'add' | 'delete') => void;
+  addTags: string[], 
+  onClickAddNoteTag: (id: string, flag: 'add' | 'delete') => void;
 }
 
 const ModalAddTag = ({addTags, onClickAddNoteTag}: ModalAddTagProp) => {
@@ -44,7 +45,7 @@ const ModalAddTag = ({addTags, onClickAddNoteTag}: ModalAddTagProp) => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // tag에 추가
-    dispatch(addTag({id: 5, tag: text}));
+    dispatch(addTag({id: v4(), tag: text}));
     setText('');
   }
 
