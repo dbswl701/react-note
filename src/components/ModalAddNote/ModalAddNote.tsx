@@ -10,13 +10,14 @@ import dayjs from 'dayjs'
 import { RootState } from '../../store'
 import ModalAddTag from '../ModalAddTag/ModalAddTag'
 import { IoClose }from 'react-icons/io5';
+import { v4 } from 'uuid'
 
 const ModalAddNote = () => {
   const dispatch = useDispatch();
   const isOpenAddTag = useSelector((state:RootState) => state.modal.isOpenAddTag);
   // const [addTags, setAddTags] = useState<number[]>([]);
   const [contents, setContents] = useState<NoteType>({
-    id: 1,
+    id: v4(),
     name: '',
     content: '',
     tagList: [],

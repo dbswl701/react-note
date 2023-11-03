@@ -1,9 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import { NoteType } from "../types/note";
+import { v4 } from 'uuid';
+
 
 const initialState: NoteType[] = [
   {
-    id: 0,
+    id: v4(),
     name: '노트1 타이틀',
     content: '노트1 내용',
     // tagList: [{
