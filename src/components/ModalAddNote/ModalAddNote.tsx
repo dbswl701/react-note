@@ -11,6 +11,7 @@ import { RootState } from '../../store'
 import ModalAddTag from '../ModalAddTag/ModalAddTag'
 import { IoClose }from 'react-icons/io5';
 import { v4 } from 'uuid'
+import { ReactQuillContainer } from '../Note/Note.styles'
 
 const ModalAddNote = () => {
   const dispatch = useDispatch();
@@ -80,6 +81,7 @@ const ModalAddNote = () => {
     setContents({...contents, tagList: contents.tagList.filter(v => v !== tagId)})
     // setAddTags([...addTags.filter(v => v !== tagId)])
   }
+  
   return (
     <Wrapper>
       {isOpenAddTag && <ModalAddTag addTags={contents.tagList} onClickAddNoteTag={onClickAddNoteTag} />}
@@ -89,7 +91,18 @@ const ModalAddNote = () => {
           <IoClose onClick={onClickClocse}style={{height: '30px', width: '30px', color: 'rgb(127,127,127)'}} />
         </Header>
         <Input name="name" value={contents.name} onChange={(e) => onChange(e)} />
-        <ReactQuill style={{height: '500px', marginBottom: '40px'}} onChange={(e) => onChange(e)}/>
+        <ReactQuillContainer color={contents.background}>
+          {/* <ReactQuill style={{height: '500px', marginBottom: '40px', backgroundColor:  'red'}} onChange={(e) => onChange(e)}/> */}
+          {/* <ReactQuill theme="snow" onChange={(e) => onChange(e)} /> */}
+          <ReactQuill
+            // formats={formats}
+            // modules={modules}
+            // theme="snow"
+            // value={value}
+            onChange={(e) => onChange(e)}
+            // style={{height: '200px', backgroundColor: 'red'}}
+            />
+        </ReactQuillContainer>
         <Tags>
           {
             filteredTagList.map((tag) => <Tag key={tag.id}>

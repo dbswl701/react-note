@@ -53,7 +53,7 @@ export const Tags = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
-  height: 20px;
+  // height: 20px;
 `;
 
 export const Tag = styled.p`
@@ -84,3 +84,10 @@ color : rgb(140, 111, 110);
 height: 20px;
 gap: 10px;
 `;
+
+export const ReactQuillContainer = styled.div`
+  .ql-container {
+    height: 200px;
+    background-color: ${(prop) => prop.color};
+  }
+`
